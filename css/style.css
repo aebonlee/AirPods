@@ -1,0 +1,70 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Black+Han+Sans&family=Gowun+Dodum&family=Kalam:wght@300&family=Nanum+Gothic&family=Noto+Sans+KR:wght@400;500&family=Shippori+Antique&family=Source+Serif+Pro&display=swap');
+/* reset css */
+* {margin:0; padding:0;}
+a {outline:0; text-decoration:none; color:white;}
+li {list-style-type:none;}
+
+
+/* 백그라운드 이미지 */
+.vid {width:100%; height:100%; position:fixed;}
+.vid img {position:absolute; transition:all 2s;}
+.vid img:nth-child(2) {opacity:0;}
+/* 왼쪽 메뉴바 */
+.gnb {width:600px; height:1400px; background:#1C1C1C; position:fixed; transform:skewX(-25deg); top:-250px; left:-300px; opacity:0.7;}
+.gnb ul li a {transform:skewX(25deg); border:0px solid blue; display:block; line-height:40px; padding-left:70px;}
+.gnb h1 {width:200px; height:200px; border:0px solid red; position:fixed; right:230px; top:250px; transform:skewX(25deg);}
+.gnb ul {position:absolute; top:500px; right:0; border:0px solid red; transform-origin:bottom; transform:skewX(-0deg);}
+.gnb ul li {width:200px; height:40px; border:0px solid red; position:relative; transition:all 1s; background:gray; border-bottom:1px solid #1C1C1C;}
+.gnb ul li:hover {background:white;}
+.gnb ul li:hover ~ .gnb ul li a span {font-size:20px;}
+/* 날아가는 남자 담는틀 */
+.origin {position:fixed; right:300px; top:50px; border:0px solid red; width:1283px; height:1074px; text-align:center;} 
+/* 날아가는 남자 축소해논 사진 */ 
+.people {width:50px; height:50px; transition:all 2s;}
+/* 날아가는 남자 크기키우기(자바스크립트용 클래스) */
+.scaleImg {width:873px; height:673px; cursor:pointer;}
+/* 중앙 텍스트 */
+.txt {width:350px; height:200px; border:0px solid red; position:fixed; right:300px; top:200px; opacity:0; transition:all 3s; transition-delay:1s;}
+/* 중앙텍스트 나타나게하는 자바스크립트용 클래스 */
+.fadeIn {opacity:1;}
+
+/* 중앙텍스트 li로 포장 */
+.origin ul li {width:350px; height:100px; border:0px solid red; display:flex; align-items:center; justify-content:center;}
+.origin ul li:nth-child(1) span {font-size:56px; color:white; margin:7px 0 0 7px;}
+.origin ul li:nth-child(2) span {font-size:25px; color:white; top:0;}
+
+/* 에어팟 이미지가 로테이트 되어있기 때문에 정방향으로 세팅해줌 그리고 투명도 0 설정 */
+.items1 img {transform:rotate(10deg); transition:all 1s 0.9s; opacity:0;}
+.items2 img {transform:rotate(45deg); transition:all 1s 0.6s; opacity:0;}
+.items3 img {transform:rotate(90deg); transition:all 1s 0.3s; opacity:0;}
+/* 날아가는남자 이미지 hover시 에어팟 이미지 투명도1 */
+.origin img:hover ~ .items1 img{opacity:1;}
+.origin img:hover ~ .items2 img{opacity:1;}
+.origin img:hover ~ .items3 img{opacity:1;}
+/* 날아가는남자 이미지 hover시 우측하단에 숨어있던 에어팟 이미지 화면에 나타남 transform-origin:bottom으로 꺾이는 기준점을 아래로 설정 */
+.origin img:hover ~ .items1 {transform-origin:bottom; transform: rotate(-10deg);}
+.origin img:hover ~ .items2 {transform-origin:bottom; transform: rotate(-45deg);}
+.origin img:hover ~ .items3 {transform-origin:bottom; transform: rotate(-90deg);}
+/* 날아가는 남자 이미지 호버시 에어팟케이스 이미지 나타남 */
+.origin img:hover ~ .items_bottom {opacity:1;}
+.origin img:hover ~ .items_bottom img {opacity:1;}
+/* 날아가는 남자 이미지 hover시 maring-right:0으로 되어 화면에 나타남 a는 텍스트를 담은 상자임*/
+.origin img:hover ~ .items_bottom a {margin-right:0; opacity:1;}
+/* 에어팟 이미지를 담은 작대기들임 30deg로 설정하여 화면에서 숨겨줌 transition-delay로 시간차를줌 */
+.items1 {transform:rotate(30deg); transform-origin:bottom; position:fixed; width:80px; height:350px; border:0px solid red; right:0; bottom:40px; transition:all 1s; transition-delay:1s;}
+.items2 {transform:rotate(30deg); transform-origin:bottom; position:fixed; width:80px; height:350px; border:0px solid red; right:0; bottom:40px; transition:all 1s; transition-delay:0.5s;}
+.items3 {transform:rotate(30deg); transform-origin:bottom; position:fixed; width:80px; height:350px; border:0px solid red; right:0; bottom:40px; transition:all 1s; transition-delay:0s;}
+.items_bottom {width:200px; height:200px; border:0px solid red; position:fixed; right:10px; bottom:10px;}
+/* 에어팟케이스 이미지이며 opacity:0 설정으로 숨겨둠 */
+.items_bottom img {position:fixed; bottom:0; right:0; opacity:0; transition:all 1s;}
+/* 무선충전까지,완벽하게를 담고있는 a태그 margin-left:-400px로 화면 우측하단으로 숨겨둠*/
+.items_bottom a {display:block; color:white; height:30px; margin:10px -400px 0 0; opacity:0; transition:all 0.5s;}
+/* a태그 안에있는 텍스트를 담고있는 span태그 */
+.items_bottom a span {font-size:32px; font-family: 'Black Han Sans', sans-serif;}
+
+.sns {width:300px; height:50px; border:0px solid red; position:fixed; right:0;}
+.sns i {color:white; font-size:30px; opacity:0.8; line-height:50px; margin-left:40px; transition:all 0.5s; cursor:pointer;}
+.sns i:hover {transform:scale(1.2);}
+.menu_bar {width:50px; height:50px; position:fixed; right:0; top:0; border:0px solid red; text-align:center;}
+.menu_bar i {color:white; font-size:30px; opacity:0.8; line-height:50px; cursor:pointer;}
